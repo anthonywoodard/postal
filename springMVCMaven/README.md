@@ -18,18 +18,16 @@ These instructions assume you are using the Apache Tomcat web server and have Ma
 2. On the commandline, change the directory to springMVCMaven
 		
 3. The folder structure should be like the following:
-
-	- pom.xml
-    - src/main/java
-    - src/main/resources
-	- src/main/webapp/
-    - src/test/java
-    - src/test/resources
-     
-
+        - pom.xml
+        - src/main/java
+        - src/main/resources
+        - src/main/webapp/
+        - src/test/java
+        - src/test/resources
+    
 4. Run the following command from the command line/terminal:
-   
-   mvn clean tomcat:run
+    
+        mvn clean tomcat:run
    
 View:
 -----
