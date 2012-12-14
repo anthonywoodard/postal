@@ -1,0 +1,37 @@
+@(title: String, menu: Integer)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href='@routes.Assets.at("css/bootstrap.min.css")'>
+        <link rel="stylesheet" media="screen" href='@routes.Assets.at("css/styles.css")'>
+        <link rel="shortcut icon" type="image/png" href='@routes.Assets.at("images/favicon.png")'>
+        <script data-dojo-config="async: 1, tlmSiblingOfDojo: 0, isDebug: 1" src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="/">Postal Project</a>
+                    <ul class="nav">
+                    @if(menu==1) {
+                        <li class="active"><a href="/">Home</a></li>
+                    } else {
+                        <li><a href="/">Home</a></li>
+                    }
+                    @if(menu==1) {
+                        <li><a href="/about">About</a></li>
+                    } else {
+                        <li class="active"><a href="/about">About</a></li>
+                    }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        @content
+        </div>
+    </body>
+</html>

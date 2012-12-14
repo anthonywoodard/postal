@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                      controllers.Application.index()
+GET     /about                 controllers.Application.about()
+
+# Data
+GET     /zip/:code             controllers.Data.zip(code:String)
+GET     /zips/:qry             controllers.Data.zips(qry:String)
+GET     /city/:qry             controllers.Data.city(qry:String)
+GET     /cities/:qry           controllers.Data.cities(qry:String)
+GET     /citystates/:city      controllers.Data.citystates(city:String)
+GET     /states                controllers.Data.states()
+GET     /state/:qry            controllers.Data.state(qry:String)
+GET     /statecities/:qry      controllers.Data.state(qry:String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file          controllers.Assets.at(path="/public", file)
