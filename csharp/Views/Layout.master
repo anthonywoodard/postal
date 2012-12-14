@@ -1,0 +1,38 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="/Content/styles/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="/Content/styles/styles.css"></link>
+	<script data-dojo-config="async: 1, tlmSiblingOfDojo: 0, isDebug: 1" src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js"></script>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+		<title></title>
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+		        <a class="brand" href="/">Postal Project</a>
+			    <ul class="nav">
+			    	<% if(ViewData["Title"] == "Index"){ %>
+			      	<li class="active"><a href="/">Home</a></li>
+			      	<% } else { %>
+			      	<li><a href="/">Home</a></li>
+			      	<% } 
+			      	   if(ViewData["Title"] == "About"){ %>
+			      	<li class="active"><a href="/about">About</a></li>
+			      	<% } else { %>
+			      	<li><a href="/about">About</a></li>
+			      	<% } %>
+			    </ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<asp:ContentPlaceHolder ID="main" runat="server"></asp:ContentPlaceHolder>
+	</div>
+	<asp:ContentPlaceHolder ID="script" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>
+

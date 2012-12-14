@@ -1,0 +1,28 @@
+@(message: String, menu: Integer)
+@import partials._
+
+@main(message, menu) {
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="well">
+                <ul class="nav nav-list" id="postalTabs">
+                    <li class="active"><a href="#zip-pane">Zip Lookup</a></li>
+                    <li class=""><a href="#city-pane">City Lookup</a></li>
+                    <li class=""><a href="#state-pane">State Lookup</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="span9">
+            <div class="tab-content">
+                @zip()
+                @city()
+                @state()
+            </div>
+        </div>
+    </div>
+    <script type="">
+        require({
+            packages: [{ name:'postal', location:'/assets/scripts/'}]
+        },['postal/index']);
+    </script>
+}

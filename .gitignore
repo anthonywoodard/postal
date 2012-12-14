@@ -35,6 +35,15 @@ Thumbs.db
 #########
 target/
 
+# Gradle #
+#########
+.gradle/
+build/
+
+# Sonar #
+#########
+.sonar/
+
 # Java #
 ########
 *.class
@@ -44,3 +53,9 @@ target/
 .project
 .settings
 .springBeans
+.idea
+*.iml
+*.ipr
+*.iws
+springMVCGradle/springpostal.properties
+

@@ -1,0 +1,25 @@
+body {
+	margin-top: 50px;
+}
+.span3 .well {
+	padding: 8px 0;
+}
+#zipcode_citystate span {
+	
+}
+#zipcode_citystate span:hover,
+#zipcode_citystate span.hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+#city_state .label,
+#state_cities .label {
+	margin-right: 5px;
+	margin-bottom: 5px;
+	float: left;
+	cursor: pointer;
+}
+.typeahead.dropdown-menu {
+	height: 200px;
+	overflow: auto;
+}
