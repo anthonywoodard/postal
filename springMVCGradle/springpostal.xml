@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="springpostal" default="all">
+  
+  
+  <property file="springpostal.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.java"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+  <path id="jdk.classpath.1.6">
+    <fileset dir="${jdk.home.1.6}">
+      <include name="lib/deploy.jar"/>
+      <include name="lib/dt.jar"/>
+      <include name="lib/javaws.jar"/>
+      <include name="lib/jce.jar"/>
+      <include name="lib/jconsole.jar"/>
+      <include name="lib/management-agent.jar"/>
+      <include name="lib/plugin.jar"/>
+      <include name="lib/sa-jdi.jar"/>
+      <include name="../Classes/charsets.jar"/>
+      <include name="../Classes/classes.jar"/>
+      <include name="../Classes/jsse.jar"/>
+      <include name="../Classes/ui.jar"/>
+      <include name="lib/ext/apple_provider.jar"/>
+      <include name="lib/ext/dnsns.jar"/>
+      <include name="lib/ext/localedata.jar"/>
+      <include name="lib/ext/sunjce_provider.jar"/>
+      <include name="lib/ext/sunpkcs11.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.commons-dbcp-1.4.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-dbcp/commons-dbcp/1.4/jar/30be73c965cc990b153a100aaaaafcf239f82d39/commons-dbcp-1.4.jar"/>
+  </path>
+  
+  <path id="library.commons-pool-1.5.4.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-pool/commons-pool/1.5.4/jar/75b6e20c596ed2945a259cea26d7fadd298398e6/commons-pool-1.5.4.jar"/>
+  </path>
+  
+  <path id="library.jackson-core-asl-1.7.1.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.codehaus.jackson/jackson-core-asl/1.7.1/jar/6c11953d1094b38e31c8ac7cda559db601caab1e/jackson-core-asl-1.7.1.jar"/>
+  </path>
+  
+  <path id="library.jackson-mapper-asl-1.7.1.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.codehaus.jackson/jackson-mapper-asl/1.7.1/jar/6d48962876433e5401ff0133fc0e2efbd01ea7ac/jackson-mapper-asl-1.7.1.jar"/>
+  </path>
+  
+  <path id="library.mysql-connector-java-5.1.21.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/mysql/mysql-connector-java/5.1.21/jar/7abbd19fc2e2d5b92c0895af8520f7fa30266be9/mysql-connector-java-5.1.21.jar"/>
+  </path>
+  
+  <path id="library.nestedvm-1.0.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.xerial.thirdparty/nestedvm/1.0/jar/dc15bf2553831ee1b1f32dd0845ae26e3e2c5052/nestedvm-1.0.jar"/>
+  </path>
+  
+  <path id="library.spring-jdbc-3.1.0.release.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-jdbc/3.1.0.RELEASE/jar/7aa355d36411f9816b0338f0dfaac63399abd60e/spring-jdbc-3.1.0.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.spring-tx-3.1.0.release.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-tx/3.1.0.RELEASE/jar/825dd46d268cc89eb282885ceb1b1664b31a43d3/spring-tx-3.1.0.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.sqlite-jdbc-3.6.16.classpath">
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.xerial/sqlite-jdbc/3.6.16/jar/63c075b9865d5451aee114c25c0ab1eb6fc34566/sqlite-jdbc-3.6.16.jar"/>
+  </path>
+  
+  
+  <!-- Global Libraries -->
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm.jar"/>
+    <pathelement location="${javac2.home}/asm-commons.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module SpringPostal -->
+  
+  <dirname property="module.springpostal.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.springpostal" value="${jdk.home.1.6}"/>
+  <property name="module.jdk.bin.springpostal" value="${jdk.bin.1.6}"/>
+  <property name="module.jdk.classpath.springpostal" value="jdk.classpath.1.6"/>
+  
+  <property name="compiler.args.springpostal" value="${compiler.args}"/>
+  
+  <property name="springpostal.output.dir" value="${module.springpostal.basedir}/build/production/SpringPostal"/>
+  <property name="springpostal.testoutput.dir" value="${module.springpostal.basedir}/build/test/SpringPostal"/>
+  
+  <path id="springpostal.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="springpostal.module.production.classpath">
+    <path refid="${module.jdk.classpath.springpostal}"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context/3.1.0.RELEASE/jar/d36e9ab580dccc8311704bc11f2434f230bdec28/spring-context-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-webmvc/3.1.0.RELEASE/jar/9a9c88df8825ff3c2ecb79f7ac29ad1e229e6fd6/spring-webmvc-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/javax.servlet/servlet-api/2.5/jar/5959582d97d8b61f4d154ca9e495aafd16726e34/servlet-api-2.5.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.freemarker/freemarker/2.3.18/jar/7b0cd31bfed5ceb396bdcdc088b24e6ff9eae96f/freemarker-2.3.18.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-io/commons-io/2.0.1/jar/7ffdb02f95af1c1a208544e076cea5b8e66e731a/commons-io-2.0.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.4/jar/16313e02a793435009f1e458fa4af5d879f6fb11/commons-lang-2.4.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-asm/3.1.0.RELEASE/jar/de7cf38491d3243c98c7d61ccdb40756df92c6d1/spring-asm-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-logging/commons-logging/1.1.1/jar/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-core/3.1.0.RELEASE/jar/3a18c725dd321e457cfb48547d40c2862216bb3b/spring-core-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-beans/3.1.0.RELEASE/jar/d12bb11cc2469cca2d8ba33d86d188733544d7e0/spring-beans-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-aop/3.1.0.RELEASE/jar/5d998ce239b87cbf66fd18a01dad854de13e2f06/spring-aop-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-expression/3.1.0.RELEASE/jar/d226f5e14c7c775b97db275950786c083290b983/spring-expression-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context-support/3.1.0.RELEASE/jar/379bb71a6eb9f1a965cd7d6d94524deab2a3da07/spring-context-support-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-web/3.1.0.RELEASE/jar/c50458fccc24b87170f6557765c6720a489b5eb2/spring-web-3.1.0.RELEASE.jar"/>
+    <path refid="library.spring-tx-3.1.0.release.classpath"/>
+    <path refid="library.commons-pool-1.5.4.classpath"/>
+    <path refid="library.commons-dbcp-1.4.classpath"/>
+    <path refid="library.spring-jdbc-3.1.0.release.classpath"/>
+  </path>
+  
+  <path id="springpostal.runtime.production.module.classpath">
+    <pathelement location="${springpostal.output.dir}"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context/3.1.0.RELEASE/jar/d36e9ab580dccc8311704bc11f2434f230bdec28/spring-context-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-webmvc/3.1.0.RELEASE/jar/9a9c88df8825ff3c2ecb79f7ac29ad1e229e6fd6/spring-webmvc-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/javax.servlet/servlet-api/2.5/jar/5959582d97d8b61f4d154ca9e495aafd16726e34/servlet-api-2.5.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.freemarker/freemarker/2.3.18/jar/7b0cd31bfed5ceb396bdcdc088b24e6ff9eae96f/freemarker-2.3.18.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-io/commons-io/2.0.1/jar/7ffdb02f95af1c1a208544e076cea5b8e66e731a/commons-io-2.0.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.4/jar/16313e02a793435009f1e458fa4af5d879f6fb11/commons-lang-2.4.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-asm/3.1.0.RELEASE/jar/de7cf38491d3243c98c7d61ccdb40756df92c6d1/spring-asm-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-logging/commons-logging/1.1.1/jar/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-core/3.1.0.RELEASE/jar/3a18c725dd321e457cfb48547d40c2862216bb3b/spring-core-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-beans/3.1.0.RELEASE/jar/d12bb11cc2469cca2d8ba33d86d188733544d7e0/spring-beans-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-aop/3.1.0.RELEASE/jar/5d998ce239b87cbf66fd18a01dad854de13e2f06/spring-aop-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-expression/3.1.0.RELEASE/jar/d226f5e14c7c775b97db275950786c083290b983/spring-expression-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context-support/3.1.0.RELEASE/jar/379bb71a6eb9f1a965cd7d6d94524deab2a3da07/spring-context-support-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-web/3.1.0.RELEASE/jar/c50458fccc24b87170f6557765c6720a489b5eb2/spring-web-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-oxm/3.1.0.RELEASE/jar/c8f8e7429596094008d0c395020e157d4e8ca432/spring-oxm-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.5/jar/b0236b252e86419eef20c31a44579d2aee2f0a69/commons-lang-2.5.jar"/>
+    <path refid="library.spring-tx-3.1.0.release.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.21.classpath"/>
+    <path refid="library.jackson-core-asl-1.7.1.classpath"/>
+    <path refid="library.commons-pool-1.5.4.classpath"/>
+    <path refid="library.commons-dbcp-1.4.classpath"/>
+    <path refid="library.spring-jdbc-3.1.0.release.classpath"/>
+    <path refid="library.jackson-mapper-asl-1.7.1.classpath"/>
+    <path refid="library.nestedvm-1.0.classpath"/>
+    <path refid="library.sqlite-jdbc-3.6.16.classpath"/>
+  </path>
+  
+  <path id="springpostal.module.classpath">
+    <path refid="${module.jdk.classpath.springpostal}"/>
+    <pathelement location="${springpostal.output.dir}"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context/3.1.0.RELEASE/jar/d36e9ab580dccc8311704bc11f2434f230bdec28/spring-context-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-webmvc/3.1.0.RELEASE/jar/9a9c88df8825ff3c2ecb79f7ac29ad1e229e6fd6/spring-webmvc-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/javax.servlet/servlet-api/2.5/jar/5959582d97d8b61f4d154ca9e495aafd16726e34/servlet-api-2.5.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.freemarker/freemarker/2.3.18/jar/7b0cd31bfed5ceb396bdcdc088b24e6ff9eae96f/freemarker-2.3.18.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-io/commons-io/2.0.1/jar/7ffdb02f95af1c1a208544e076cea5b8e66e731a/commons-io-2.0.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.4/jar/16313e02a793435009f1e458fa4af5d879f6fb11/commons-lang-2.4.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-asm/3.1.0.RELEASE/jar/de7cf38491d3243c98c7d61ccdb40756df92c6d1/spring-asm-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-logging/commons-logging/1.1.1/jar/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-core/3.1.0.RELEASE/jar/3a18c725dd321e457cfb48547d40c2862216bb3b/spring-core-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-beans/3.1.0.RELEASE/jar/d12bb11cc2469cca2d8ba33d86d188733544d7e0/spring-beans-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-aop/3.1.0.RELEASE/jar/5d998ce239b87cbf66fd18a01dad854de13e2f06/spring-aop-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-expression/3.1.0.RELEASE/jar/d226f5e14c7c775b97db275950786c083290b983/spring-expression-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context-support/3.1.0.RELEASE/jar/379bb71a6eb9f1a965cd7d6d94524deab2a3da07/spring-context-support-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-web/3.1.0.RELEASE/jar/c50458fccc24b87170f6557765c6720a489b5eb2/spring-web-3.1.0.RELEASE.jar"/>
+    <path refid="library.spring-tx-3.1.0.release.classpath"/>
+    <path refid="library.commons-pool-1.5.4.classpath"/>
+    <path refid="library.commons-dbcp-1.4.classpath"/>
+    <path refid="library.spring-jdbc-3.1.0.release.classpath"/>
+  </path>
+  
+  <path id="springpostal.runtime.module.classpath">
+    <pathelement location="${springpostal.testoutput.dir}"/>
+    <pathelement location="${springpostal.output.dir}"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context/3.1.0.RELEASE/jar/d36e9ab580dccc8311704bc11f2434f230bdec28/spring-context-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-webmvc/3.1.0.RELEASE/jar/9a9c88df8825ff3c2ecb79f7ac29ad1e229e6fd6/spring-webmvc-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/javax.servlet/servlet-api/2.5/jar/5959582d97d8b61f4d154ca9e495aafd16726e34/servlet-api-2.5.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.freemarker/freemarker/2.3.18/jar/7b0cd31bfed5ceb396bdcdc088b24e6ff9eae96f/freemarker-2.3.18.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-io/commons-io/2.0.1/jar/7ffdb02f95af1c1a208544e076cea5b8e66e731a/commons-io-2.0.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.4/jar/16313e02a793435009f1e458fa4af5d879f6fb11/commons-lang-2.4.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-asm/3.1.0.RELEASE/jar/de7cf38491d3243c98c7d61ccdb40756df92c6d1/spring-asm-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-logging/commons-logging/1.1.1/jar/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-core/3.1.0.RELEASE/jar/3a18c725dd321e457cfb48547d40c2862216bb3b/spring-core-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-beans/3.1.0.RELEASE/jar/d12bb11cc2469cca2d8ba33d86d188733544d7e0/spring-beans-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-aop/3.1.0.RELEASE/jar/5d998ce239b87cbf66fd18a01dad854de13e2f06/spring-aop-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-expression/3.1.0.RELEASE/jar/d226f5e14c7c775b97db275950786c083290b983/spring-expression-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context-support/3.1.0.RELEASE/jar/379bb71a6eb9f1a965cd7d6d94524deab2a3da07/spring-context-support-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-web/3.1.0.RELEASE/jar/c50458fccc24b87170f6557765c6720a489b5eb2/spring-web-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-oxm/3.1.0.RELEASE/jar/c8f8e7429596094008d0c395020e157d4e8ca432/spring-oxm-3.1.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.5/jar/b0236b252e86419eef20c31a44579d2aee2f0a69/commons-lang-2.5.jar"/>
+    <path refid="library.spring-tx-3.1.0.release.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.21.classpath"/>
+    <path refid="library.jackson-core-asl-1.7.1.classpath"/>
+    <path refid="library.commons-pool-1.5.4.classpath"/>
+    <path refid="library.commons-dbcp-1.4.classpath"/>
+    <path refid="library.spring-jdbc-3.1.0.release.classpath"/>
+    <path refid="library.jackson-mapper-asl-1.7.1.classpath"/>
+    <path refid="library.nestedvm-1.0.classpath"/>
+    <path refid="library.sqlite-jdbc-3.6.16.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.springpostal">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.springpostal">
+    <patternset refid="excluded.from.module.springpostal"/>
+  </patternset>
+  
+  <path id="springpostal.module.sourcepath">
+    <dirset dir="${module.springpostal.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.springpostal" depends="compile.module.springpostal.production,compile.module.springpostal.tests" description="Compile module SpringPostal"/>
+  
+  <target name="compile.module.springpostal.production" depends="register.custom.compilers" description="Compile module SpringPostal; production classes">
+    <mkdir dir="${springpostal.output.dir}"/>
+    <javac2 destdir="${springpostal.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.springpostal}/javac">
+      <compilerarg line="${compiler.args.springpostal}"/>
+      <bootclasspath refid="springpostal.module.bootclasspath"/>
+      <classpath refid="springpostal.module.production.classpath"/>
+      <src refid="springpostal.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.springpostal"/>
+    </javac2>
+    
+    <copy todir="${springpostal.output.dir}">
+      <fileset dir="${module.springpostal.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.springpostal.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.springpostal.tests" depends="register.custom.compilers,compile.module.springpostal.production" description="compile module SpringPostal; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.springpostal" description="cleanup module">
+    <delete dir="${springpostal.output.dir}"/>
+    <delete dir="${springpostal.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.springpostal, clean.artifact.postal_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.springpostal" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.postal" value="${basedir}/build/libs"/>
+    <property name="artifact.output.postal_exploded" value="${basedir}/build/artifacts/postal_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.postal.war" value="${artifacts.temp.dir}/postal.war"/>
+  </target>
+  
+  <target name="clean.artifact.postal_exploded" description="clean postal_exploded artifact output">
+    <delete dir="${artifact.output.postal_exploded}"/>
+  </target>
+  
+  <target name="artifact.postal" depends="init.artifacts, artifact.postal_exploded" description="Build &#39;postal&#39; artifact">
+    <property name="artifact.temp.output.postal" value="${artifacts.temp.dir}/postal"/>
+    <mkdir dir="${artifact.temp.output.postal}"/>
+    <zip destfile="${temp.jar.path.postal.war}">
+      <zipfileset dir="${artifact.output.postal_exploded}"/>
+      <zipfileset file="${basedir}/META-INF/MANIFEST.MF" prefix="META-INF"/>
+      <zipfileset file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.xerial.thirdparty/nestedvm/1.0/jar/dc15bf2553831ee1b1f32dd0845ae26e3e2c5052/nestedvm-1.0.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.xerial/sqlite-jdbc/3.6.16/jar/63c075b9865d5451aee114c25c0ab1eb6fc34566/sqlite-jdbc-3.6.16.jar" prefix="WEB-INF/lib"/>
+    </zip>
+    <copy file="${temp.jar.path.postal.war}" tofile="${artifact.temp.output.postal}/postal.war"/>
+    <ant antfile="" target="null" dir="">
+      <property name="artifact.output.path" value="${artifact.temp.output.postal}"/>
+    </ant>
+  </target>
+  
+  <target name="artifact.postal_exploded" depends="init.artifacts, compile.module.springpostal" description="Build &#39;postal_exploded&#39; artifact">
+    <mkdir dir="${artifact.output.postal_exploded}"/>
+    <mkdir dir="${artifact.output.postal_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.postal_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.postal_exploded}/WEB-INF/classes">
+      <fileset dir="${springpostal.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.postal_exploded}/WEB-INF/lib"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context/3.1.0.RELEASE/jar/d36e9ab580dccc8311704bc11f2434f230bdec28/spring-context-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-context-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-webmvc/3.1.0.RELEASE/jar/9a9c88df8825ff3c2ecb79f7ac29ad1e229e6fd6/spring-webmvc-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-webmvc-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.freemarker/freemarker/2.3.18/jar/7b0cd31bfed5ceb396bdcdc088b24e6ff9eae96f/freemarker-2.3.18.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/freemarker-2.3.18.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-io/commons-io/2.0.1/jar/7ffdb02f95af1c1a208544e076cea5b8e66e731a/commons-io-2.0.1.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/commons-io-2.0.1.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.4/jar/16313e02a793435009f1e458fa4af5d879f6fb11/commons-lang-2.4.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/commons-lang-2.4.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-asm/3.1.0.RELEASE/jar/de7cf38491d3243c98c7d61ccdb40756df92c6d1/spring-asm-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-asm-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-logging/commons-logging/1.1.1/jar/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/commons-logging-1.1.1.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-core/3.1.0.RELEASE/jar/3a18c725dd321e457cfb48547d40c2862216bb3b/spring-core-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-core-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-beans/3.1.0.RELEASE/jar/d12bb11cc2469cca2d8ba33d86d188733544d7e0/spring-beans-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-beans-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/aopalliance-1.0.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-aop/3.1.0.RELEASE/jar/5d998ce239b87cbf66fd18a01dad854de13e2f06/spring-aop-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-aop-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-expression/3.1.0.RELEASE/jar/d226f5e14c7c775b97db275950786c083290b983/spring-expression-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-expression-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-context-support/3.1.0.RELEASE/jar/379bb71a6eb9f1a965cd7d6d94524deab2a3da07/spring-context-support-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-context-support-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-web/3.1.0.RELEASE/jar/c50458fccc24b87170f6557765c6720a489b5eb2/spring-web-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-web-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-oxm/3.1.0.RELEASE/jar/c8f8e7429596094008d0c395020e157d4e8ca432/spring-oxm-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-oxm-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-lang/commons-lang/2.5/jar/b0236b252e86419eef20c31a44579d2aee2f0a69/commons-lang-2.5.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/commons-lang-2.5.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-tx/3.1.0.RELEASE/jar/825dd46d268cc89eb282885ceb1b1664b31a43d3/spring-tx-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-tx-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/mysql/mysql-connector-java/5.1.21/jar/7abbd19fc2e2d5b92c0895af8520f7fa30266be9/mysql-connector-java-5.1.21.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/mysql-connector-java-5.1.21.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.codehaus.jackson/jackson-core-asl/1.7.1/jar/6c11953d1094b38e31c8ac7cda559db601caab1e/jackson-core-asl-1.7.1.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/jackson-core-asl-1.7.1.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-pool/commons-pool/1.5.4/jar/75b6e20c596ed2945a259cea26d7fadd298398e6/commons-pool-1.5.4.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/commons-pool-1.5.4.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/commons-dbcp/commons-dbcp/1.4/jar/30be73c965cc990b153a100aaaaafcf239f82d39/commons-dbcp-1.4.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/commons-dbcp-1.4.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.springframework/spring-jdbc/3.1.0.RELEASE/jar/7aa355d36411f9816b0338f0dfaac63399abd60e/spring-jdbc-3.1.0.RELEASE.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/spring-jdbc-3.1.0.RELEASE.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.codehaus.jackson/jackson-mapper-asl/1.7.1/jar/6d48962876433e5401ff0133fc0e2efbd01ea7ac/jackson-mapper-asl-1.7.1.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/jackson-mapper-asl-1.7.1.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.xerial.thirdparty/nestedvm/1.0/jar/dc15bf2553831ee1b1f32dd0845ae26e3e2c5052/nestedvm-1.0.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/nestedvm-1.0.jar"/>
+    <copy file="${basedir}/../../../.gradle/caches/artifacts-14/filestore/org.xerial/sqlite-jdbc/3.6.16/jar/63c075b9865d5451aee114c25c0ab1eb6fc34566/sqlite-jdbc-3.6.16.jar" tofile="${artifact.output.postal_exploded}/WEB-INF/lib/sqlite-jdbc-3.6.16.jar"/>
+    <copy todir="${artifact.output.postal_exploded}">
+      <fileset dir="${basedir}/src/main/webapp"/>
+    </copy>
+    <mkdir dir="${artifact.output.postal_exploded}/WEB-INF"/>
+    <copy file="${basedir}/src/main/webapp/WEB-INF/web.xml" tofile="${artifact.output.postal_exploded}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.postal, artifact.postal_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.postal}"/>
+    <copy todir="${artifact.output.postal}">
+      <fileset dir="${artifact.temp.output.postal}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

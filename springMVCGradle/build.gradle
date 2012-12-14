@@ -1,0 +1,39 @@
+def springGroup = 'org.springframework'
+def springFrameworkVersion = '3.1.0.RELEASE'
+
+apply plugin:'java'
+apply plugin: 'idea'
+apply plugin:'war'
+
+repositories { 
+	mavenCentral()
+    mavenRepo urls: [
+        'http://repository.jboss.com/maven2',
+        'http://maven.cedarsoft.com/content/repositories/thirdparty/'
+    ]
+}
+
+dependencies {
+		compile(
+				[group: springGroup, name: 'spring-context', version: springFrameworkVersion],
+				[group: springGroup, name: 'spring-webmvc', version: springFrameworkVersion],
+				[group: 'javax.servlet', name: 'servlet-api', version: '2.5'],
+				[group: 'org.freemarker', name: 'freemarker', version: '2.3.18'],
+				[group: 'commons-io', name: 'commons-io', version: '2.0.1'],
+                [group: springGroup, name: 'spring-jdbc', version: springFrameworkVersion],
+                [group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'],
+                [group: 'commons-lang', name: 'commons-lang', version: '2.4']
+        )
+		runtime(
+				[group: springGroup, name: 'spring-oxm', version: springFrameworkVersion],
+				[group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.11'],
+                [group: 'mysql', name: 'mysql-connector-java', version: '5.1.21'],
+                [group: 'org.xerial', name: 'sqlite-jdbc', version: '3.6.16']
+        )
+        testCompile(
+                [group: 'junit', name: 'junit', version: '4.8.2'],
+                [group: springGroup, name: 'spring-test', version: springFrameworkVersion]
+        )
+	}
+
+war.baseName = "postal"
