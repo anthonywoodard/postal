@@ -30,7 +30,7 @@ These instructions assume you are using the Apache Tomcat web server and have Ma
     
         mvn clean tomcat:run
    
-View:
+View
 -----
 http://localhost:8080/postal/
     
