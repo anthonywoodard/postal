@@ -2,7 +2,7 @@ springMVCMaven
 --------------
 springMVCMaven uses a number of open source projects to work properly:
 
-*   jQuery + [requireJS] [(AMD)] - JavaScript library and module loader
+*   jQuery + requireJS - JavaScript library and module loader
 *   Maven - a software project management and comprehension tool
 *   Spring Web MVC framework - a model-view-controller framework
 *   SQLite - a software library that implements a SQL database engine
