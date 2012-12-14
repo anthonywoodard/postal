@@ -1,15 +1,17 @@
 Gradle Setup
 ------------
 
-1.Download the gradle jar and set up the environment varibable for gradle.
+1.Download the gradle jar and set up the environment variable for gradle.
          
-FreemarkerSpike Setup
+springMVCGradle Setup
 ---------------------
 1. Check out the project from:
 
-    	https://sjscm01.stjude.org/svn/cris-qa/spikes/ConceptSpikes/FreemarkerSpike
+    	https://github.com/anthonywoodard/postal.git
+
+2. On the commandline, change the directory to springMVCGradle
 		
-2. Make sure that the folder structure should be like the following:
+3. Make sure that the folder structure should be like the following:
 
 	src/main/java
 	src/main/webapp/
@@ -23,24 +25,13 @@ Build the application:
    a. gradle build
    b. gradle eclipse
 
-   'war' file is generated under build/libs/FMSpike.war
+   'war' file is generated under build/libs/postal.war
    
-2. Copy the war file from build/libs/FMSpike.war to your jboss server
+2. Copy the war file from build/libs/postal.war to your application server
 
 Start the server and access the application using:
 ----------------------------
 
-Xml View:
+View:
 
-http://localhost:8080/FMSpike/xmlView
-
-Json View:
-
-http://localhost:8080/FMSpike/jsonView/natasha
-
-Html View:
-
-http://localhost:8080/FMSpike/message.html
-
-   	
-   
+http://localhost:8080/postal/
