@@ -1,0 +1,33 @@
+{
+  "name": "angularjs-postal",
+  "version": "0.0.1",
+  "authors": [
+    "Anthony Woodard <anthony.woodard@gmail.com>"
+  ],
+  "description": "Postal app using AngularJS",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "MVC",
+    "MVW"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/anthonywoodard/postal/angularjs",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.x",
+    "bootstrap": "~3.1.1",
+    "angular-resource": "~1.2.x",
+    "angular-route": "~1.2.x",
+    "holderjs": ""
+  }
+}

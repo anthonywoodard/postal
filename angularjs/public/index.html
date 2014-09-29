@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Postal</title>
+        <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="css/angucomplete.css">
+        <link rel="stylesheet" href="css/postal.css">
+        <script src="https://www.google.com/jsapi"></script>
+        <script src="libs/holderjs/holder.js"></script>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Postal: Node and Angular</a>
+            </div>
+        </nav>
+        
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+                    <ul class="nav nav-sidebar">
+                        <li><a href="/">Rankings</a></li>
+                        <li><a href="#!search">Search/Favorites</a></li>                      
+                        <li><a href="#!states">States</a></li>
+                    </ul>          
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="libs/angular/angular.js"></script>
+        <script src="libs/angular-route/angular-route.js"></script>
+        <script src="libs/angular-resource/angular-resource.js"></script>
+        <script src="js/postal.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/routes.js"></script>
+        <script src="js/angucomplete.js"></script>
+        <script src="js/myHolder.js"></script>
+        <script src="js/directives.js"></script>
+    </body>
+</html>

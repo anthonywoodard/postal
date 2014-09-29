@@ -49,6 +49,7 @@ build/
 *.class
 
 # IDE #
+########
 .classpath
 .project
 .settings
@@ -58,4 +59,9 @@ build/
 *.ipr
 *.iws
 springMVCGradle/springpostal.properties
+
+# NodeJS #
+###########
+node_modules
+
 

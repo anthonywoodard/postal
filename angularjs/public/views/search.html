@@ -1,0 +1,22 @@
+<div>
+    <h1 class="page-header">Search By Zip Code</h1>    
+    <div>
+        <angucomplete id="zipcodes" placeholder="Enter zip code" pause="300" selectedobject="selectedZipCode" url="/api/zip/" titlefield="zipcode,city,state" minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
+    </div>
+    <div class="" ng-show="selectedZipCode">
+        You selected <span class="bold-span">{{selectedZipCode.originalObject.city}}, {{selectedZipCode.originalObject.state}}  {{selectedZipCode.originalObject.zipcode}}</span>
+        <button class="btn btn-default" ng-hide="inFavorites" ng-click="addFavorite(selectedZipCode.originalObject.state, selectedZipCode.originalObject.city)">Add to Favorites</button>
+        <button class="btn btn-default" ng-show="inFavorites" ng-click="removeFavorite(selectedZipCode.originalObject.state)">Remove from Favorites</button>        
+    </div>    
+</div>
+<div ng-show="isEmptyFavorites">
+    <h1 class="page-header">Favorite Cities</h1>
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder" ng-repeat="(state, city) in favorites">
+          <img my-holder="holder.js/100x100/auto/sky" class="img-responsive" alt="{{city}}, {{state}}">
+          <h4>{{city}}</h4>
+          <div class="text-muted">{{state}}</div>
+          <button class="btn btn-default" ng-click="removeFavorite(state)">Remove from Favorites</button>
+        </div>    
+    </div>
+</div>
