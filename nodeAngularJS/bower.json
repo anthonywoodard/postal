@@ -1,10 +1,10 @@
 {
-  "name": "angularjs-postal",
+  "name": "nodeAngularJS",
   "version": "0.0.1",
   "authors": [
     "Anthony Woodard <anthony.woodard@gmail.com>"
   ],
-  "description": "Postal app using AngularJS",
+  "description": "Postal app using NodeJS and AngularJS",
   "main": "index.html",
   "moduleType": [
     "amd"

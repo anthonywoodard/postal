@@ -1,5 +1,5 @@
 {
-    "name": "postal-node-angular",
+    "name": "nodeAngularJS",
     "description": "Postal app using NodeJS and AngularJS",
     "version": "0.0.1",
     "private": true,
