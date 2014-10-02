@@ -14,7 +14,7 @@
     "MVW"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/anthonywoodard/postal/angularjs",
+  "homepage": "https://github.com/anthonywoodard/postal/nodeAngularJS",
   "private": true,
   "ignore": [
     "**/.*",
