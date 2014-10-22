@@ -1,7 +1,7 @@
 {
     "name": "nodeAngularJS",
     "description": "Postal app using NodeJS and AngularJS",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "private": true,
     "author": "Anthony Woodard",
     "main": "server.js",
